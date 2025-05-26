@@ -3,7 +3,10 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-
+import { Eye, EyeOff } from "lucide-react";
+import ButtonSub from "@/components/buttonsub";
+import ButtonBtn from "@/components/buttonbtn";
+import Footer from "@/components/footer";
 export default function Page() {
   const router = useRouter();
   const goToPath = (path: string) => {
@@ -17,9 +20,19 @@ export default function Page() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [otp, setOtp] = useState("");
 
+  const [eye1, setEye1] = useState(false);
+  const [eye2, setEye2] = useState(false);
+
+  const onEye1 = () => {
+    setEye1(!eye1);
+  };
+  const onEye2 = () => {
+    setEye2(!eye2);
+  };
+
   return (
     <main>
-      <section className="max-w-[380px] !px-[0.6rem] !mx-auto fixed w-full translate-x-[-50%] translate-y-[-50%] left-[50%] top-[40%]">
+      <section className="container1 max-w-[400px] fixed w-full translate-x-[-50%] translate-y-[-50%] left-[50%] top-[40%]">
         <div className="text-center font-bold !text-[1.5rem] flex justify-center">
           <div className="k w-[7rem] md:w-[9rem]">
             <img src="/img/logo.png" alt="" />
@@ -31,62 +44,102 @@ export default function Page() {
         <div className="form flex flex-col !mt-[4rem]">
           <div className="d flex justify-end">{steps}/2</div>
           {steps === "1" ? (
-            <section className="input flex flex-col gap-y-[0.5rem] h-[12rem] overflow-y-auto border-t-2">
+            <section className="flex flex-col gap-y-[0.5rem] h-[12rem] overflow-y-auto border-t-2 !px-[0.1rem] !pb-[0.5rem]">
               <div className="flex flex-col !mt-[0.5rem]">
-                <label htmlFor="">Username:</label>
+                <label htmlFor="username">Username:</label>
                 <input
                   className="border-1 !px-2 h-[2.8rem] rounded-[6px] bg-[#f0f0f0]"
                   type="text"
+                  id="username"
+                  placeholder="Enter your username"
+                  autoComplete="username"
+                  onFocus={(e) => {
+                    e.target.setAttribute("autocomplete", "off");
+                  }}
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
               <div className="flex flex-col">
-                <label htmlFor="">Email:</label>
+                <label htmlFor="email">Email:</label>
                 <input
                   className="border-1 !px-2 h-[2.8rem] rounded-[6px] bg-[#f0f0f0]"
                   type="text"
+                  id="email"
+                  placeholder="Enter your email"
+                  autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="flex flex-col">
-                <label htmlFor="">Password:</label>
-                <input
-                  className="border-1 !px-2 h-[2.8rem] rounded-[6px] bg-[#f0f0f0]"
-                  type="text"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <label htmlFor="password1">Password:</label>
+                <div className="l relative">
+                  <input
+                    className="border-1 !px-2 h-[2.8rem] rounded-[6px] w-full bg-[#f0f0f0]"
+                    type={eye1 ? "text" : "password"}
+                    id="password1"
+                    placeholder="Re-enter your password"
+                    autoComplete="current-password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <div className="absolute top-[50%] right-2 -translate-y-[50%] text-[#4f4f4f] cursor-pointer ">
+                    {eye1 ? (
+                      <EyeOff size={24} onClick={onEye1} />
+                    ) : (
+                      <Eye size={24} onClick={onEye1} />
+                    )}
+                  </div>
+                </div>
               </div>
               <div className="flex flex-col">
-                <label htmlFor="">Confirm Password:</label>
-                <input
-                  className="border-1 !px-2 h-[2.8rem] rounded-[6px] bg-[#f0f0f0]"
-                  type="text"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                />
+                <label htmlFor="password2">Confirm Password:</label>
+                <div className="l relative">
+                  <input
+                    className="border-1 !px-2 h-[2.8rem] rounded-[6px] w-full bg-[#f0f0f0]"
+                    type={eye2 ? "text" : "password"}
+                    id="password2"
+                    placeholder="Re-enter your password"
+                    autoComplete="current-password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                  <div className="absolute top-[50%] right-2 -translate-y-[50%] text-[#4f4f4f] cursor-pointer">
+                    {eye2 ? (
+                      <EyeOff size={24} onClick={onEye2} />
+                    ) : (
+                      <Eye size={24} onClick={onEye2} />
+                    )}
+                  </div>
+                </div>
               </div>
             </section>
           ) : (
             steps === "2" && (
-              <section className="input flex flex-col gap-y-[0.5rem] h-[12rem] overflow-y-auto border-t-2">
+              <section className="input flex flex-col gap-y-[0.5rem] h-[12rem] overflow-y-auto border-t-2 !px-[0.1rem] !pb-[0.5rem]">
                 <div className="flex flex-col !mt-[0.5rem]">
-                  <label htmlFor="">Email :</label>
+                  <label htmlFor="email1">Email :</label>
                   <input
-                    className="border-1 !px-2 h-[2.8rem] rounded-[6px] bg-[#f0f0f0]"
+                    className="border-1 !px-2 h-[2.8rem] rounded-[6px] bg-[#f0f0f0] text-[#4f4f4f]"
                     type="text"
+                    id="email1"
+                    placeholder="Enter your email"
+                    autoComplete="email"
                     disabled={true}
                     value={email} // แสดงอีเมลที่กรอกในขั้นตอนที่ 1
                     onChange={(e) => setEmail(e.target.value)} // ป้องกันการเปลี่ยนแปลงอีเมล
                   />
                 </div>
                 <div className="flex flex-col">
-                  <label htmlFor="">OTP :</label>
+                  <label htmlFor="otp">OTP :</label>
                   <input
                     className="border-1 !px-2 h-[2.8rem] rounded-[6px] bg-[#f0f0f0]"
                     type="text"
+                    id="otp"
+                    placeholder="Enter your OTP"
+                    autoComplete="otp"
+                    autoFocus
                     value={otp}
                     onChange={(e) => setOtp(e.target.value)} // อัปเดตค่า OTP ที่กรอก
                   />
@@ -96,10 +149,8 @@ export default function Page() {
           )}
 
           <section className="d !mt-[0.6rem] flex justify-between items-center gap-x-4">
-            <input
-              className="border-1 w-full h-[2.5rem] rounded-[6px] bg-[#2d63f6] cursor-pointer hover:bg-[#6c93cd] transition-all duration-200"
-              type="button"
-              value={steps === "1" ? "Cancel" : "Back"} // เปลี่ยนค่า value ตามค่า steps
+            <div
+              className="k bg-[#bd3636] rounded-[6px] w-full"
               onClick={() => {
                 // เมื่อคลิกปุ่ม, หาก steps เป็น "1", เปลี่ยนเป็น "2"
                 if (steps === "1") {
@@ -108,11 +159,11 @@ export default function Page() {
                   setSteps("1");
                 }
               }}
-            />
-            <input
-              className="border-1 w-full h-[2.5rem] rounded-[6px] bg-[#2d63f6] cursor-pointer hover:bg-[#6c93cd] transition-all duration-200"
-              type="button"
-              value={steps === "1" ? "Next" : "Register"} // เปลี่ยนค่า value ตามค่า steps
+            >
+              <ButtonBtn text={steps === "1" ? "Cancel" : "Back"} />
+            </div>
+            <div
+              className="k bg-[#4046f2] rounded-[6px] w-full"
               onClick={() => {
                 // เมื่อคลิกปุ่ม, หาก steps เป็น "1", เปลี่ยนเป็น "2"
                 if (steps === "1") {
@@ -121,7 +172,9 @@ export default function Page() {
                   alert("Registered Successfully!"); // แสดงข้อความเมื่อเสร็จ
                 }
               }}
-            />
+            >
+              <ButtonBtn text={steps === "1" ? "Next" : "Register"} />
+            </div>
           </section>
         </div>
       </section>
