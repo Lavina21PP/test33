@@ -1,7 +1,7 @@
 "use client";
 import ImageSlider from "@/components/ImageSlider";
 import Navbar from "@/components/navbar";
-import { Mail, Store, House, SquareUserRound } from "lucide-react";
+import { Mail, Store, House, SquareUserRound, ShoppingCart } from "lucide-react";
 import { PcL, PcR } from "@/components/pcLR";
 import SearchBar from "@/components/search";
 import Footer from "@/components/footer";
@@ -27,10 +27,14 @@ export default function HomePage() {
       // @ts-ignore
       refS.current.scrollTo({
       top: 400,
+      behavior: "smooth",
+      left: 0,
     });
     }
     window.scrollTo({
       top: 310,
+      behavior: "smooth",
+      left: 0,
     });
   };
   const pageAll = [
@@ -112,10 +116,10 @@ export default function HomePage() {
                           key={shop}
                         >
                           <div className="k p-4 pb-2">
-                            <div className="k w-36 h-36 mx-auto bg-[#2d2d2d] rounded-[5px] overflow-hidden">
+                            <div className="k w-30 h-30 md:w-36 md:h-36 mx-auto bg-[#2d2d2d] rounded-[5px] overflow-hidden">
                               <img src="/img/logo.png" alt="" />
                             </div>
-                            <div className="k w-36 overflow-hidden">
+                            <div className="k w-30 md:w-36 overflow-hidden">
                               <div className="k mt-1">Fan11</div>
                               <div className="k">
                                 slkdflksdfjwejfsldkfjlkjlkjksdf
@@ -125,7 +129,7 @@ export default function HomePage() {
                           <div className="k ">
                             <RippleButton className="w-full">
                               <div className="k flex items-center justify-center gap-x-2 bg-[#f0733e] text-[#fff] w-full h-[2.5rem]">
-                                <Store size={20} />
+                                <ShoppingCart size={20} />
                                 <div className="k">ສັ່ງຊື້</div>
                               </div>
                             </RippleButton>
