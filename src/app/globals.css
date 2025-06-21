@@ -29,7 +29,7 @@ body {
 }
 
 body {
-  background-color: #c8e3ff;
+  background-color: #313131;
   user-select: none; /* ปิดการเลือกข้อความ */
   -webkit-user-select: none; /* ปิดการเลือกบนเว็บเบราว์เซอร์ที่ใช้ WebKit */
   -moz-user-select: none; /* ปิดการเลือกบน Firefox */

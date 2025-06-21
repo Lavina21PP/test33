@@ -37,15 +37,15 @@ export default function HomePage() {
       <div className="k md:flex justify-between">
         <PcL />
         <section className="w-[100%] md:w-[100%] mx-auto md:h-screen md:overflow-y-auto">
-          <div className="k h-[3rem] md:h-[3.82rem] bg-[#569fff] text-[#fff] flex items-center justify-center">
+          <div className="k h-[3rem] md:h-[3.82rem] bg-[#181818] text-[#fff] flex items-center justify-center">
             <div className="k md:!text-[1.2rem] font-bold">Home</div>
           </div>
           <ImageSlider />
-          <section className="bg-[#569fff] sticky top-0 z-1000">
+          <section className="bg-[#181818] sticky top-0 z-1000">
             <div className="container1 py-3">
               <SearchBar onSearch={handleSearch} />
             </div>
-            <ul className="flex gap-x-4 py-2 overflow-auto !px-[3vw] border-b-1 border-[#4765c7]">
+            <ul className="flex gap-x-4 py-2 overflow-auto !px-[3vw] border-b-1 border-[#333333]">
               <li className="shrink-0 text-white font-semibold">All Stores</li>
               <li className="shrink-0 text-white">Popular</li>
               <li className="shrink-0 text-white">New</li>
@@ -59,7 +59,7 @@ export default function HomePage() {
           <section className="flex flex-col gap-y-2 py-2.5">
             {[1, 2, 3, 4, 5, 3, 3, 3, 3, 3, 3, 3, 3].map((e, i) => (
               <section className="container1" key={i}>
-                <RippleButton className=" w-full bg-[#f2f2f2] rounded-[7px]">
+                <RippleButton className=" w-full bg-[#f5f5f5] rounded-[7px]">
                   <nav className="k flex justify-between p-3">
                     <div className="k flex justify-between">
                       <div className="k w-[5rem] h-[5rem] rounded-[4px] overflow-hidden">

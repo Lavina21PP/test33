@@ -56,10 +56,10 @@ const Footer = () => {
     <section>
       <div
         className={`fixed z-1000 bottom-0 w-full transition-transform duration-500 ${
-          showFooter ? "translate-y-0" : "translate-y-[10rem]"
+          showFooter ? "translate-y-2" : "translate-y-[10rem]"
         }`}
       >
-        <footer className="bg-[#569fff] text-white flex justify-evenly items-center text-center">
+        <footer className="bg-[#181818] text-white flex justify-evenly items-center text-center">
           {btnPage.map((e, i) => {
             const isActive = pathname === e.link;
             return (
@@ -70,7 +70,7 @@ const Footer = () => {
                     goToPath(e.link);
                   }, 100)
                 }
-                className={`w-[100%] py-[0.6rem] ${isActive ? "bg-[#68a9ff]" : "bg-[#569fff]"}`}
+                className={`w-[100%] py-[0.8rem] ${isActive ? "bg-[#202020]" : "bg-[#181818]"}`}
               >
                 <div className="flex justify-center">{e.icon}</div>
                 {e.name}
